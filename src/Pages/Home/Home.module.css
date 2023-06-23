@@ -1,0 +1,62 @@
+/* Estilos generales */
+.productListContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 20px;
+}
+
+.productItem {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.productItem:hover {
+  transform: translateY(-5px);
+}
+
+.productItem img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 5px 5px 0 0;
+}
+
+.productItem {
+  padding: 20px;
+}
+
+.productItem h3 {
+  font-size: 18px;
+  margin: 0 0 10px;
+}
+
+.productItem p {
+  margin: 0 0 5px;
+}
+
+.productItem p.credit {
+  color: #888;
+}
+
+.productItem p.precio {
+  font-weight: bold;
+}
+
+/* Estilos para el botón de compra */
+.productItem button {
+  display: block;
+  width: 100%;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.productItem button:hover {
+  background-color: #555;
+}

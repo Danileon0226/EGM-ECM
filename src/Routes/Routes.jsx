@@ -1,5 +1,6 @@
 import Carrito from "../Pages/Carrito";
-import Home from "../Pages/Home";
+import Home from "../Pages/Home/Home";
+
 
 const routes = [
   { path: "*", component: Home },
