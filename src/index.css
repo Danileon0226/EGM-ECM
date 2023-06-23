@@ -19,3 +19,15 @@
   --blancoTotal: #FFFFFF;
   --negroTotal: #000;
 }
+
+
+.p-claro{
+  font-size: 14px;
+  color: var(--grisMasOscuro);
+  margin: 20px 0;
+}
+
+.p-negrilla{
+  font-size: 14px;
+  font-weight: bold;
+}
