@@ -4,23 +4,14 @@ import "./index.css";
 
 import Store from "./Store/Store";
 import { Provider } from "react-redux";
-import { routes } from "./Routes/Routes";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import Header from "./Components/Header/Header";
+import Routes from "./Routes/Routes";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Provider store={Store}>
-      <BrowserRouter>
-        <Routes>
-          {routes.map((ruta) => (
-            <Route
-              path={ruta.path}
-              element={<ruta.component />}
-              key={ruta.path}
-            />
-          ))}
-        </Routes>
-      </BrowserRouter>
+      <Routes />
     </Provider>
   </React.StrictMode>
 );
