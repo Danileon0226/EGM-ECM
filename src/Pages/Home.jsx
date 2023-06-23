@@ -1,4 +1,4 @@
-export default function HomeProvicional() {
+export default function Home() {
     return (
         <div>Hola Mundo</div>
     )
