@@ -1,9 +1,47 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import './Producto.css'
 import { faMinus, faPlus, faShare } from '@fortawesome/free-solid-svg-icons'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import db from '../../../Firestore'
+import './Producto.css'
+import { useParams } from 'react-router'
+
 
 export default function Producto() {
+
+    const { id } = useParams()
+
+    const [productData, setProductData] = useState([])
+
+
+    useEffect(() => {
+        realizarConsultaPorId(id)
+      }, [id])
+    
+      const realizarConsultaPorId = async (id) => {
+        try {
+          const producto = await db.collection('products').where('id', '==', id).get()
+          if (!producto.empty) {
+            const fetchedProduct = producto.docs.map((doc) => {
+              const productData = doc.data()
+              return {
+                id: productData.id,
+                image: productData.image,
+                price: productData.price,
+                discountPrice: productData['descount price'],
+                sizes: productData.size,
+                nombre: productData.nombre
+              }
+            })
+            setProductData(fetchedProduct[0]) // Tomar el primer elemento ya que solo se espera un documento con un ID único
+          } else {
+            // No se encontraron documentos que coincidan con el ID
+            setProductData(null)
+          }
+        } catch (error) {
+          console.log(error)
+        }
+      }
+    
 
     const [cantidadProducto, setCantidadProducto] = useState(1)
 
@@ -19,17 +57,20 @@ export default function Producto() {
         setCantidadProducto(cantidadProducto + 1)
     }
 
+
+    console.log(productData)
+
     return (
         <div className="productPageContainer">
             <div className="product-page-img">
-                <img src="https://cdn.shopify.com/s/files/1/0640/3175/2431/products/comehereandfeelthepainofyourownthoughtshoodie.png?v=1650984676&width=1100" alt="" />
+                <img src={productData.image} alt="" />
             </div>
             <div className="productPage-info">
                 <h1>
-                    NOMBRE DEL PRODUCTO
+                    {productData.nombre}
                 </h1>
                 <h2>
-                    $99.999.00
+                    ${productData.price}
                 </h2>
                 <div className="buyOptions">
                     <label htmlFor="selectSize">Tamaño</label>
