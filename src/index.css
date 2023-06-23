@@ -2,7 +2,7 @@
 
 *{
   padding: 0;
-  margin-top: 0;
+  margin: 0;
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 }
@@ -13,6 +13,7 @@
   --azulSecundario:  #507dbc;
   --azulTercero: #a1c6ea;
   --azulMuyClaro: #bbd1ea;
+  --grisMasOscuro: #b0b0b0;
   --grisBasico: #dae3e5;
   --blancoTotal: #FFFFFF;
   --negroTotal: #000;
