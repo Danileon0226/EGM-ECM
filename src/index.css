@@ -31,3 +31,8 @@
   font-size: 14px;
   font-weight: bold;
 }
+
+
+.iconActivo{
+  color: var(--azulPrincipal) !important;
+}

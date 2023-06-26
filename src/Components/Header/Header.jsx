@@ -7,6 +7,7 @@ import SegundoLogo from '../../assets/img/engimaLogo/clothes.svg'
 
 // CSS
 import './Header.css'
+import { Link, NavLink } from "react-router-dom"
 
 
 export default function Header() {
@@ -22,25 +23,43 @@ export default function Header() {
                             <FontAwesomeIcon icon={faMagnifyingGlass} />
                         </button>
                     </div>
-                    <a className="logo-container">
+                    <Link to="/" className="logo-container">
                         <img src={PrimerLogo} alt="Enigma Logo"/>
                         <img src={SegundoLogo} alt="Enigma Logo"/>
-                    </a>
+                    </Link>
                     <div className="header-icons">
-                        <a href='#' className="icon">
+                        <Link to='/cuenta' className="icon">
                             <FontAwesomeIcon icon={faUser} />
-                        </a>
-                        <a href='#' className="icon">
+                        </Link>
+                        <NavLink to='/carrito' className={({isActive}) => isActive ? 'icon iconActivo' : 'icon'}>
                             <FontAwesomeIcon icon={faCartShopping} />
-                        </a>
+                        </NavLink>
                     </div>
+            </div>
+            {/* Este Banner Se muestra cuando la resolucion llega a 457px */}
+            <div className="headerBanner2">
+                <Link to="/" className="logo-container">
+                    <img src={PrimerLogo} alt="Enigma Logo"/>
+                    <img src={SegundoLogo} alt="Enigma Logo"/>
+                </Link>
+                <div className="header-icons">
+                    <button className="icon">
+                        <FontAwesomeIcon icon={faMagnifyingGlass} />
+                    </button>
+                    <Link to='/cuenta' className="icon">
+                        <FontAwesomeIcon icon={faUser} />
+                    </Link>
+                    <NavLink to='/carrito' className={({isActive}) => isActive ? 'icon iconActivo' : 'icon'}>
+                            <FontAwesomeIcon icon={faCartShopping} />
+                    </NavLink>
+                </div>
             </div>
             <nav className="navbar-horizontal">
                 <ul>
-                    <a className="activo" href="#">Inicio</a>
-                    <a href="#">Tienda</a>
-                    <a href="#">Contacto</a>
-                    <a href="#">Terminos</a>
+                    <NavLink className={({isActive}) => isActive ? 'activo' : ''} to="/">Inicio</NavLink>
+                    <NavLink to="/">Tienda</NavLink>
+                    <NavLink to="/">Contacto</NavLink>
+                    <NavLink to="/">Terminos</NavLink>
                 </ul>
             </nav>
         </div>

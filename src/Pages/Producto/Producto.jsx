@@ -15,32 +15,31 @@ export default function Producto() {
 
     useEffect(() => {
         realizarConsultaPorId(id)
-      }, [id])
+    }, [id])
     
-      const realizarConsultaPorId = async (id) => {
+    const realizarConsultaPorId = async (id) => {
         try {
-          const producto = await db.collection('products').where('id', '==', id).get()
-          if (!producto.empty) {
-            const fetchedProduct = producto.docs.map((doc) => {
-              const productData = doc.data()
-              return {
-                id: productData.id,
-                image: productData.image,
-                price: productData.price,
-                discountPrice: productData['descount price'],
-                sizes: productData.size,
-                nombre: productData.nombre
-              }
-            })
-            setProductData(fetchedProduct[0]) // Tomar el primer elemento ya que solo se espera un documento con un ID único
-          } else {
-            // No se encontraron documentos que coincidan con el ID
-            setProductData(null)
-          }
+            const producto = await db.collection('products').where('id', '==', id).get()
+            if (!producto.empty) {
+                const fetchedProduct = producto.docs.map((doc) => {
+                    const productData = doc.data()
+                    return {
+                        id: productData.id,
+                        image: productData.image,
+                        price: productData.price,
+                        discountPrice: productData['descount price'],
+                        sizes: productData.size,
+                        nombre: productData.nombre
+                    }
+                })
+                setProductData(fetchedProduct[0])
+            } else {
+                setProductData(null)
+            }
         } catch (error) {
-          console.log(error)
+            console.log(error)
         }
-      }
+    }
     
 
     const [cantidadProducto, setCantidadProducto] = useState(1)
