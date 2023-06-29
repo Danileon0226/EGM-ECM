@@ -1,0 +1,81 @@
+.background {
+  background-color: #f2f2f2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.login-form {
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 400px;
+}
+
+.login-form h3 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.login-form label {
+  display: block;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+}
+
+.login-form button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.login-form button:hover {
+  background-color: #555;
+}
+
+.login-form .social {
+  margin-top: 20px;
+}
+
+.login-form .social div {
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.login-form .social a {
+  color: #333;
+  text-decoration: none;
+}
+
+.login-form .social a:hover {
+  text-decoration: underline;
+}
+
+.login-form p {
+  margin-top: 10px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.login-form .error {
+  color: red;
+}
+
+.login-form .success {
+  color: green;
+}
